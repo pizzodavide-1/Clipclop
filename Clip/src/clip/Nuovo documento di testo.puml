@@ -1,0 +1,24 @@
+@startuml
+actor Utente
+participant main
+entity datiCondivisi
+
+Utente -> main ++ : start
+
+main -> datiCondivisi ** : new
+
+Utente -> main : Su che cavallo punti?
+main -> thCorsa ** : new
+main -> thCorsa ++ : start
+
+Utente -> main : Cavallo scommesso
+
+deactivate thCorsa
+note over main : join thCorsa
+
+thVisualizza -> Utente : numero galoppi
+
+main -> datiCondivisi : datiCondivisi.getMax()
+main -> Utente : messaggio
+@enduml
+
